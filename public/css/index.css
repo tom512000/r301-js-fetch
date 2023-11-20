@@ -1,114 +1,138 @@
-.app {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 900px;
-  display: flex;
-  font-size: 1.2em;
-  gap: .5em;
+html {
+    margin: 0;
+    background-color: #333;
+    color: #ccc;
+    height: 100%;
 }
 
-.button {
-  border: 2px solid #999;
-  border-radius: 1.5em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3em;
-  height: 3em;
-  cursor: pointer;
+body {
+    padding: 1em;
+    margin: 0 auto;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    height: 100%;
 }
 
-.users-data {
-  flex: 1;
-  display: flex;
-  border: 2px solid #999;
-  border-radius: 3px;
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: .5em;
+    min-width: 300px;
+    font-size: 1.2em;
 }
-
-.users-data__legend {
-  display: flex;
-  gap: .5em;
-  align-items: center;
+button {
+    border: 2px solid #ccc;
+    background-color: #eee;
+    border-radius: 3px;
+    padding: .5em;
+    font-family: inherit;
+    font-size: 1em;
+    cursor: pointer;
 }
-
-.user-data__add {
-  color: #171;
-  border-color: #171;
-}
-
-.users {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: .5em;
-  list-style-type: none;
-  margin: 0;
-  padding: .5em;
-}
-
-.user {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: .5em;
-  padding: .25em;
-  border: 2px solid #999;
-  border-radius: 3px;
-}
-
-.user:hover {
-  border-color: #ccc;
-}
-
-.input {
-  border: 0 none transparent;
-  border-radius: 3px;
-  box-sizing: border-box;
-  font-family: inherit;
-  font-size: 1em;
-  background: rgba(255, 255, 255, .5);
-}
-
-.input:focus {
-  border: 2px solid #ccc;
-}
-
-.user__name {
-  width: 5em;
-}
-
-.user__age {
-  width: 3.5em;
-}
-
-.user__delete {
-  color: #922;
-  border-color: #922;
-  margin-left: auto;
+button:hover {
+    border: 2px solid #bbb;
+    background-color: #ddd;
 }
 
 .info {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid #999;
-  border-radius: 3px;
-  margin-top: 1em;
+    position: relative;
+    border: 2px solid #888;
+    border-radius: 3px;
+    padding: .5em;
 }
 
-.info__age-average-type {
-  display: flex;
-  flex-direction: column;
+.info::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 50%;
+    padding: 0 .25em;
+    font-weight: bold;
+    color: #000;
 }
 
-.info__user {
-  display: flex;
+.group1 {
+    border-color: #ff3366;
 }
 
-.info__age-average {
-  flex: 1;
-  min-width: 3em;
+.group2 {
+    border-color: #66cc66;
 }
 
-.user--child {
-  background-color: #eef;
+.group3 {
+    border-color: #3366ff;
+
+}
+
+.group4 {
+    border-color: #ffff66;
+}
+
+.group5 {
+    border-color: #8066ff;
+}
+
+.group6 {
+    border-color: #ff8066;
+}
+
+.group7 {
+    border-color: #ff66ff;
+}
+
+.group8 {
+    border-color: #66ffff;
+}
+
+.group9 {
+    border-color: #6680ff;
+
+}
+
+.group1::after {
+    content: "1";
+    background-color: #ff3366;
+}
+
+.group2::after {
+    content: "2";
+    background-color: #66cc66;
+}
+
+.group3::after {
+    content: "3";
+    background-color: #3366ff;
+}
+
+.group4::after {
+    content: "4";
+    background-color: #ffff66;
+}
+
+.group5::after {
+    content: "5";
+    background-color: #8066ff;
+}
+
+.group6::after {
+    content: "6";
+    background-color: #ff8066;
+}
+
+.group7::after {
+    content: "7";
+    background-color: #ff66ff;
+}
+
+.group8::after {
+    content: "8";
+    background-color: #66ffff;
+}
+
+.group9::after {
+    content: "9";
+    background-color: #6680ff;
 }
