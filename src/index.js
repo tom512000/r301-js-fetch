@@ -20,12 +20,24 @@ print("Fetch hello", 1);
 print("Fetch resources", 2);
 print("Fetch du sujet de TP", 3);
 
-const retour = fetch(`${baseUrl}/resources/fetch/hello.php`);
-const retour2 = fetch(`${baseUrl}/resources/fetch/`);
-const retour3 = fetch(`${baseUrl}/intranet/but/r301/tp/fetch/`);
+const retourHello = fetch(`${baseUrl}/resources/fetch/hello.php`);
+const retourResources = fetch(`${baseUrl}/resources/fetch/`);
+const retourSujetTP = fetch(`${baseUrl}/intranet/but/r301/tp/fetch/`);
 
 print("Fin");
 
-retour.then((response) => {print(`Fetch hello ${responseToHtmlUl(response)}`, 1)});
-retour2.then((response) => {print(`Réponse resources ${responseToHtmlUl(response)}`, 2)});
-retour3.catch((response) => {print(`Erreur du sujet de TP`, 3)});
+retourHello.then((response) => {
+    print(`Fetch hello ${responseToHtmlUl(response)}`, 1)
+    return response.text()
+})
+    .then((text) => {
+        print(text, 1)
+    });
+
+retourResources.then((response) => {
+    print(`Réponse resources ${responseToHtmlUl(response)}`, 2)
+});
+
+retourSujetTP.catch((response) => {
+    print(`Erreur du sujet de TP`, 3)
+});
