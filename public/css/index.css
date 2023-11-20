@@ -1,0 +1,114 @@
+.app {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  font-size: 1.2em;
+  gap: .5em;
+}
+
+.button {
+  border: 2px solid #999;
+  border-radius: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+  height: 3em;
+  cursor: pointer;
+}
+
+.users-data {
+  flex: 1;
+  display: flex;
+  border: 2px solid #999;
+  border-radius: 3px;
+}
+
+.users-data__legend {
+  display: flex;
+  gap: .5em;
+  align-items: center;
+}
+
+.user-data__add {
+  color: #171;
+  border-color: #171;
+}
+
+.users {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  list-style-type: none;
+  margin: 0;
+  padding: .5em;
+}
+
+.user {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  padding: .25em;
+  border: 2px solid #999;
+  border-radius: 3px;
+}
+
+.user:hover {
+  border-color: #ccc;
+}
+
+.input {
+  border: 0 none transparent;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 1em;
+  background: rgba(255, 255, 255, .5);
+}
+
+.input:focus {
+  border: 2px solid #ccc;
+}
+
+.user__name {
+  width: 5em;
+}
+
+.user__age {
+  width: 3.5em;
+}
+
+.user__delete {
+  color: #922;
+  border-color: #922;
+  margin-left: auto;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #999;
+  border-radius: 3px;
+  margin-top: 1em;
+}
+
+.info__age-average-type {
+  display: flex;
+  flex-direction: column;
+}
+
+.info__user {
+  display: flex;
+}
+
+.info__age-average {
+  flex: 1;
+  min-width: 3em;
+}
+
+.user--child {
+  background-color: #eef;
+}
