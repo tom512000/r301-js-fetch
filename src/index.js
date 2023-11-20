@@ -10,10 +10,14 @@ const baseUrl = "https://iut-info.univ-reims.fr/users/jonquet";
 
 print("Début");
 print("Fetch hello", 1);
+
 const retour = fetch(`${baseUrl}/resources/fetch/hello.php`);
 const retour2 = fetch(`${baseUrl}/resources/fetch/`);
+const retour3 = fetch(`${baseUrl}/intranet/but/r301/tp/fetch/`);
+
 print("Fin");
 print(`Retour fetch hello ${retour}`, 1);
 
 retour.then((response) => {print(`Fetch resources ${response.status}`, 2)});
 retour2.then((response) => {print(`Réponse resources ${response.status}`, 2)});
+retour3.then((response) => {print(`Réponse resources ${response.status}`, 3)});
