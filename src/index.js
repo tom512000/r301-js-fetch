@@ -28,21 +28,22 @@ const retourSujetTP = fetch(`${baseUrl}/intranet/but/r301/tp/fetch/`);
 const retourHelloBob = fetch(`${baseUrl}/resources/fetch/hello.php?user=${encodeURIComponent('Bob')}`);
 
 const initMethode = {
-    method: 'POST',
+    method: "POST",
     headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-    }// Manque le body
+    },
+    body: "times=3",
 };
-const retourHelloBill3 = fetch(`${baseUrl}/resources/fetch/hello.php?user=${encodeURIComponent('Bill')}&times=3`, initMethode);
+const retourHelloBill3 = fetch(`${baseUrl}/resources/fetch/hello.php?user=Bill`, initMethode);
 
 print("Fin");
 
 retourHello.then((response) => {
-    print(`Fetch hello ${responseToHtmlUl(response)}`, 1)
+    print(`Réponse hello ${responseToHtmlUl(response)}`, 1)
     return response.text()
 })
     .then((text) => {
-        print(text, 1)
+        print(`Body hello : "${text}"`, 1)
     });
 
 retourResources.then((response) => {
@@ -54,17 +55,17 @@ retourSujetTP.catch((response) => {
 });
 
 retourHelloBob.then((response) => {
-    print(`Fetch hello ${responseToHtmlUl(response)}`, 4)
+    print(`Réponse hello Bob ${responseToHtmlUl(response)}`, 4)
     return response.text()
 })
     .then((text) => {
-        print(text, 4)
+        print(`Body hello Bob : "${text}"`, 4)
     });
 
 retourHelloBill3.then((response) => {
-    print(`Fetch hello ${responseToHtmlUl(response)}`, 5)
+    print(`Réponse hello Bill ${responseToHtmlUl(response)}`, 5)
     return response.text()
 })
     .then((text) => {
-        print(text, 5)
+        print(`Body hello Bill : "${text}"`, 5)
     });
