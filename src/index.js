@@ -13,28 +13,38 @@ function responseToHtmlUl(response) {
             </ul>`
 }
 
-const baseUrl = "https://iut-info.univ-reims.fr/users/jonquet";
-
 print("Début");
 print("Fetch hello", 1);
 print("Fetch resources", 2);
 print("Fetch du sujet de TP", 3);
 print("Fetch hello Bob", 4);
 print("Fetch hello Bill (3)", 5);
+print("Fetch session sans Cookie", 6);
+print("Fetch session avec Cookie", 7);
+
+const initMethodeBill3 = {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": "",
+    },
+    body: "times=3",
+    credentials: "include",
+};
+
+const initMethodeCookie = {
+    credentials: "include",
+};
+
+const baseUrl = "https://iut-info.univ-reims.fr/users/jonquet";
 
 const retourHello = fetch(`${baseUrl}/resources/fetch/hello.php`);
 const retourResources = fetch(`${baseUrl}/resources/fetch/`);
 const retourSujetTP = fetch(`${baseUrl}/intranet/but/r301/tp/fetch/`);
 const retourHelloBob = fetch(`${baseUrl}/resources/fetch/hello.php?user=${encodeURIComponent('Bob')}`);
-
-const initMethode = {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: "times=3",
-};
-const retourHelloBill3 = fetch(`${baseUrl}/resources/fetch/hello.php?user=Bill`, initMethode);
+const retourHelloBill3 = fetch(`${baseUrl}/resources/fetch/hello.php?user=Bill`, initMethodeBill3);
+const retourCookieSansSession = fetch(`${baseUrl}/resources/fetch/last-user.php`);
+const retourCookieAvecSession = fetch(`${baseUrl}/resources/fetch/last-user.php`, initMethodeCookie);
 
 print("Fin");
 
@@ -68,4 +78,20 @@ retourHelloBill3.then((response) => {
 })
     .then((text) => {
         print(`Body hello Bill : "${text}"`, 5)
+    });
+
+retourCookieSansSession.then((response) => {
+    print(`Réponse session sans Cookie ${responseToHtmlUl(response)}`, 6)
+    return response.text()
+})
+    .then((text) => {
+        print(`Body session sans Cookie : "${text}"`, 6)
+    });
+
+retourCookieAvecSession.then((response) => {
+    print(`Réponse session avec Cookie ${responseToHtmlUl(response)}`, 7)
+    return response.text()
+})
+    .then((text) => {
+        print(`Body session avec Cookie : "${text}"`, 7)
     });
